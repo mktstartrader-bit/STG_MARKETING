@@ -155,22 +155,6 @@ export function Hero() {
           style={{ rotateX: rx, rotateY: ry, transformStyle: "preserve-3d" }}
           className="relative"
         >
-          {/* orbit rings */}
-          <div className="pointer-events-none absolute left-1/2 top-1/2 h-[130%] w-[130%] -translate-x-1/2 -translate-y-1/2">
-            <div
-              className="absolute inset-0 rounded-full border border-glow/15"
-              style={{ animation: "var(--animate-spin-slow)" }}
-            />
-            <div
-              className="absolute inset-[9%] rounded-full border border-chrome/10"
-              style={{
-                animation: "var(--animate-spin-slow)",
-                animationDirection: "reverse",
-                animationDuration: "34s",
-              }}
-            />
-          </div>
-
           {/* glow platform */}
           <div className="absolute -bottom-4 left-1/2 h-24 w-[70%] -translate-x-1/2 rounded-[50%] bg-glow/30 blur-2xl" />
 
