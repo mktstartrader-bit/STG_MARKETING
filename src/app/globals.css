@@ -16,7 +16,7 @@
   --color-slate: #8c98b8;       /* Slate gray — secondary / body text */
   --color-hairline: #1a2236;    /* Hairline — dividers, borders */
 
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
 
   --shadow-glow-sm: 0 0 20px -4px rgba(74, 144, 255, 0.45);
   --shadow-glow: 0 0 60px -12px rgba(74, 144, 255, 0.55);
@@ -78,7 +78,9 @@ html.lenis body {
 body {
   background-color: var(--color-navy);
   color: var(--color-offwhite);
-  font-family: var(--font-sans);
+  /* Reference the next/font variable directly — Tailwind tree-shakes
+     the theme's --font-sans when it isn't used by a utility class. */
+  font-family: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
