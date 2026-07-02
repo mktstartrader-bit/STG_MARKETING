@@ -55,9 +55,6 @@ export function Navbar() {
                 priority
                 className="h-9 w-auto drop-shadow-[0_0_18px_rgba(74,144,255,0.45)] transition-transform duration-500 group-hover:scale-105"
               />
-              <span className="hidden text-sm font-semibold tracking-[0.22em] text-slate sm:block">
-                MARKETING <span className="text-glow">LLC</span>
-              </span>
             </a>
 
             {/* Desktop links */}

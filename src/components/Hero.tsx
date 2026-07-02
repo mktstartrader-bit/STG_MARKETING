@@ -44,35 +44,39 @@ export function Hero() {
       id="top"
       className="relative isolate flex min-h-screen flex-col items-center justify-center px-5 pt-28 pb-16 text-center sm:px-8"
     >
-      {/* Banner backdrop */}
+      {/* Banner backdrop — looping video (static poster for reduced motion) */}
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <motion.div
-          initial={{ opacity: 0, scale: 1.06 }}
-          animate={
-            reduce
-              ? { opacity: 1, scale: 1 }
-              : { opacity: 1, scale: [1.06, 1, 1.06] }
-          }
-          transition={{
-            opacity: { duration: 1.2, ease: "easeOut" },
-            scale: { duration: 22, repeat: Infinity, ease: "easeInOut" },
-          }}
-          className="absolute inset-0"
-        >
+        {reduce ? (
           <Image
-            src="/brand/hero-banner.jpg"
+            src="/brand/hero-poster.jpg"
             alt=""
             fill
             priority
             sizes="100vw"
             className="object-cover object-center"
           />
-        </motion.div>
-        {/* readability overlays */}
-        <div className="absolute inset-0 bg-navy/25" />
-        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-navy via-navy/70 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-navy via-navy/80 to-transparent" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_45%_at_50%_45%,rgba(6,9,18,0.7),transparent_70%)]" />
+        ) : (
+          <motion.video
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.4, ease: "easeOut" }}
+            className="absolute inset-0 h-full w-full object-cover object-center"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster="/brand/hero-poster.jpg"
+          >
+            <source src="/brand/hero-banner.mp4" type="video/mp4" />
+          </motion.video>
+        )}
+        {/* brand + readability overlays */}
+        <div className="absolute inset-0 bg-navy/55" />
+        <div className="absolute inset-0 bg-electric/15 mix-blend-color" />
+        <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-navy via-navy/80 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-60 bg-gradient-to-t from-navy via-navy/90 to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_50%_at_50%_44%,rgba(6,9,18,0.78),transparent_72%)]" />
       </div>
 
       {/* Eyebrow */}
