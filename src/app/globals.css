@@ -1,0 +1,216 @@
+@import "tailwindcss";
+
+/* ============================================================
+   STG MARKETING LLC — Brand Design System
+   Colors, type, and motion primitives derived from the
+   official brand guidelines (v1.1, June 2026).
+   ============================================================ */
+
+@theme {
+  --color-navy: #060912;        /* Midnight navy — primary background */
+  --color-panel: #0d1320;       /* Panel navy — cards, containers */
+  --color-electric: #1d4ed8;    /* Electric blue — primary accent, CTAs */
+  --color-glow: #4a90ff;        /* Glow blue — highlights, glow, links */
+  --color-chrome: #c7d2e3;      /* Chrome silver — secondary mark, borders */
+  --color-offwhite: #e8ecf5;    /* Off white — primary text on dark */
+  --color-slate: #8c98b8;       /* Slate gray — secondary / body text */
+  --color-hairline: #1a2236;    /* Hairline — dividers, borders */
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-glow-sm: 0 0 20px -4px rgba(74, 144, 255, 0.45);
+  --shadow-glow: 0 0 60px -12px rgba(74, 144, 255, 0.55);
+
+  --animate-shimmer: shimmer 2.5s linear infinite;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-float-slow: float 11s ease-in-out infinite;
+  --animate-spin-slow: spin 26s linear infinite;
+  --animate-twinkle: twinkle 3.5s ease-in-out infinite;
+  --animate-aurora: aurora 18s ease-in-out infinite;
+  --animate-marquee: marquee 38s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.85) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.1) rotate(45deg); }
+}
+@keyframes aurora {
+  0%, 100% { transform: translate3d(0,0,0) scale(1); opacity: 0.55; }
+  33% { transform: translate3d(6%, -4%, 0) scale(1.12); opacity: 0.8; }
+  66% { transform: translate3d(-5%, 5%, 0) scale(0.95); opacity: 0.6; }
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  background-color: var(--color-navy);
+  color: var(--color-offwhite);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(29, 78, 216, 0.4);
+  color: #fff;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--color-navy); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--color-electric), var(--color-glow));
+  border-radius: 99px;
+  border: 2px solid var(--color-navy);
+}
+
+/* ---------- Reusable brand utilities ----------
+   Wrapped in @layer components so Tailwind utilities
+   (hidden, justify-*, etc.) can override them. */
+@layer components {
+
+/* Section heading eyebrow */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-glow);
+}
+
+/* Chrome/glass gradient text echoing the logo */
+.text-chrome {
+  background: linear-gradient(180deg, #ffffff 0%, var(--color-chrome) 45%, #7d8aa8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.text-gradient {
+  background: linear-gradient(100deg, var(--color-glow) 0%, #7fb0ff 40%, var(--color-chrome) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Glass panel — cards / containers */
+.glass {
+  background:
+    linear-gradient(180deg, rgba(199,210,227,0.05), rgba(13,19,32,0.2)),
+    var(--color-panel);
+  border: 1px solid var(--color-hairline);
+  border-radius: 1.25rem;
+  backdrop-filter: blur(10px);
+}
+
+/* Fine grid background */
+.grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(199,210,227,0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(199,210,227,0.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 40%, transparent 100%);
+}
+
+/* Shine sweep for buttons/cards */
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+.shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.18) 48%,
+    rgba(255, 255, 255, 0.05) 55%,
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.7s ease;
+}
+.shine:hover::after { transform: translateX(120%); }
+
+/* Primary CTA */
+.btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.9rem 1.6rem;
+  border-radius: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(180deg, var(--color-glow), var(--color-electric));
+  box-shadow: 0 10px 30px -10px rgba(29, 78, 216, 0.9), inset 0 1px 0 rgba(255,255,255,0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 45px -12px rgba(74, 144, 255, 0.95), inset 0 1px 0 rgba(255,255,255,0.45);
+}
+.btn-primary:active { transform: translateY(0); }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.5rem;
+  border-radius: 0.85rem;
+  font-weight: 500;
+  color: var(--color-offwhite);
+  border: 1px solid var(--color-hairline);
+  background: rgba(199,210,227,0.03);
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+.btn-ghost:hover {
+  border-color: rgba(74,144,255,0.5);
+  background: rgba(74,144,255,0.08);
+  transform: translateY(-2px);
+}
+
+/* Gradient hairline divider */
+.rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-hairline) 20%, rgba(74,144,255,0.4) 50%, var(--color-hairline) 80%, transparent);
+}
+
+/* Card lift hover */
+.lift {
+  transition: transform 0.35s cubic-bezier(.2,.7,.3,1), border-color 0.35s ease, box-shadow 0.35s ease;
+}
+.lift:hover {
+  transform: translateY(-6px);
+  border-color: rgba(74,144,255,0.45);
+  box-shadow: 0 30px 60px -30px rgba(74,144,255,0.4);
+}
+
+} /* end @layer components */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
