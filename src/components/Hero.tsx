@@ -42,8 +42,39 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-screen flex-col items-center justify-center px-5 pt-28 pb-16 text-center sm:px-8"
+      className="relative isolate flex min-h-screen flex-col items-center justify-center px-5 pt-28 pb-16 text-center sm:px-8"
     >
+      {/* Banner backdrop */}
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0, scale: 1.06 }}
+          animate={
+            reduce
+              ? { opacity: 1, scale: 1 }
+              : { opacity: 1, scale: [1.06, 1, 1.06] }
+          }
+          transition={{
+            opacity: { duration: 1.2, ease: "easeOut" },
+            scale: { duration: 22, repeat: Infinity, ease: "easeInOut" },
+          }}
+          className="absolute inset-0"
+        >
+          <Image
+            src="/brand/hero-banner.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+        </motion.div>
+        {/* readability overlays */}
+        <div className="absolute inset-0 bg-navy/25" />
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-navy via-navy/70 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-navy via-navy/80 to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_45%_at_50%_45%,rgba(6,9,18,0.7),transparent_70%)]" />
+      </div>
+
       {/* Eyebrow */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
