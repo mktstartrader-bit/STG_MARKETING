@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Logo from "./Logo";
+import LogoGlass from "./LogoGlass";
 import {
   motion,
   useMotionValue,
@@ -169,7 +169,7 @@ export function Hero() {
             className="relative"
             style={{ transform: "translateZ(60px)" }}
           >
-            <Logo
+            <LogoGlass
               priority
               className="mx-auto w-64 sm:w-72"
             />
