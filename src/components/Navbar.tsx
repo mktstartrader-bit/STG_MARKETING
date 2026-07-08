@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
 import { ArrowRight } from "./Icons";
+import Logo from "./Logo";
 
 const links = [
   { label: "About", href: "#about" },
@@ -47,14 +47,18 @@ export function Navbar() {
           <nav className="mx-auto flex h-18 max-w-7xl items-center justify-between px-5 py-3.5 sm:px-8">
             {/* Logo */}
             <a href="#top" className="group flex items-center gap-3">
-              <Image
-                src="/brand/stg-mark-t.png"
-                alt="STG Marketing LLC"
-                width={112}
-                height={48}
-                priority
-                className="h-9 w-auto drop-shadow-[0_0_18px_rgba(74,144,255,0.45)] transition-transform duration-500 group-hover:scale-105"
+              <Logo
+                variant="light"
+                className="h-14 w-auto drop-shadow-[0_0_18px_rgba(74,144,255,0.45)] transition-transform duration-500 group-hover:scale-105"
               />
+              <span className="flex flex-col leading-none">
+                <span className="text-base font-bold uppercase tracking-[0.22em] text-offwhite">
+                  Marketing
+                </span>
+                <span className="mt-1 text-[0.6rem] font-semibold uppercase tracking-[0.5em] text-glow">
+                  LLC
+                </span>
+              </span>
             </a>
 
             {/* Desktop links */}

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Logo from "./Logo";
 import {
   motion,
   useMotionValue,
@@ -168,13 +169,9 @@ export function Hero() {
             className="relative"
             style={{ transform: "translateZ(60px)" }}
           >
-            <Image
-              src="/brand/stg-lockup-t.png"
-              alt="STG Marketing LLC logo"
-              width={990}
-              height={554}
-              priority
-              className="mx-auto w-full max-w-xl drop-shadow-[0_20px_60px_rgba(29,78,216,0.5)]"
+            <Logo
+              variant="light"
+              className="mx-auto w-64 sm:w-72 drop-shadow-[0_20px_60px_rgba(29,78,216,0.5)]"
             />
           </motion.div>
 

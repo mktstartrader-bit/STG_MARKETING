@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Logo from "./Logo";
 
 const nav = [
   { label: "About", href: "#about" },
@@ -22,13 +22,20 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
           {/* Brand */}
           <div>
-            <Image
-              src="/brand/stg-lockup-t.png"
-              alt="STG Marketing LLC"
-              width={300}
-              height={168}
-              className="h-16 w-auto drop-shadow-[0_0_24px_rgba(74,144,255,0.35)]"
-            />
+            <div className="flex items-center gap-3.5">
+              <Logo
+                variant="light"
+                className="h-16 w-auto drop-shadow-[0_0_24px_rgba(74,144,255,0.35)]"
+              />
+              <span className="flex flex-col leading-none">
+                <span className="text-xl font-bold uppercase tracking-[0.22em] text-offwhite">
+                  Marketing
+                </span>
+                <span className="mt-1.5 text-xs font-semibold uppercase tracking-[0.5em] text-glow">
+                  LLC
+                </span>
+              </span>
+            </div>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-slate">
               Helping clients build and implement marketing strategies that
               achieve coordinated activities and control — across the Asia
