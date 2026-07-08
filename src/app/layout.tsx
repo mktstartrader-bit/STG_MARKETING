@@ -30,10 +30,10 @@ export const metadata: Metadata = {
   ],
   icons: {
     icon: [
-      { url: "/brand/icon-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/brand/icon-512.png", sizes: "512x512", type: "image/png" },
+      { url: "/brand/icon-32.png?v=2", sizes: "32x32", type: "image/png" },
+      { url: "/brand/icon-512.png?v=2", sizes: "512x512", type: "image/png" },
     ],
-    apple: "/brand/icon-180.png",
+    apple: "/brand/icon-180.png?v=2",
   },
   openGraph: {
     title: "STG Marketing LLC — Marketing Strategy, Built to Perform",
