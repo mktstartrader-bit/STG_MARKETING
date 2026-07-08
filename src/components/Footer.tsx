@@ -24,8 +24,7 @@ export function Footer() {
           <div>
             <div className="flex items-center gap-3.5">
               <Logo
-                variant="light"
-                className="h-16 w-auto drop-shadow-[0_0_24px_rgba(74,144,255,0.35)]"
+                className="h-16 w-auto"
               />
               <span className="flex flex-col leading-none">
                 <span className="text-xl font-bold uppercase tracking-[0.22em] text-offwhite">

@@ -48,8 +48,8 @@ export function Navbar() {
             {/* Logo */}
             <a href="#top" className="group flex items-center gap-3">
               <Logo
-                variant="light"
-                className="h-14 w-auto drop-shadow-[0_0_18px_rgba(74,144,255,0.45)] transition-transform duration-500 group-hover:scale-105"
+                priority
+                className="h-14 w-auto transition-transform duration-500 group-hover:scale-105"
               />
               <span className="flex flex-col leading-none">
                 <span className="text-base font-bold uppercase tracking-[0.22em] text-offwhite">

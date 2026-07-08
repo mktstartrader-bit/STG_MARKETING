@@ -170,8 +170,8 @@ export function Hero() {
             style={{ transform: "translateZ(60px)" }}
           >
             <Logo
-              variant="light"
-              className="mx-auto w-64 sm:w-72 drop-shadow-[0_20px_60px_rgba(29,78,216,0.5)]"
+              priority
+              className="mx-auto w-64 sm:w-72"
             />
           </motion.div>
 
